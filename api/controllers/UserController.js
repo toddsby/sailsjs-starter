@@ -7,6 +7,39 @@
 
 module.exports = {
 
+create: function(req, res) {
+  
+    var newUser = {};
+    
+    newUser.firstName = req.query.firstName;
+    newUser.lastName = req.query.lastName;
+    newUser.email = req.query.email;
+    newUser.password = req.query.password;
+    
+    User.create(newUser).exec(function(err, user) {
+    
+      if (err) {
+      
+          if (err.ValidationError) {
+          
+              errors = HandleValidation.transformValidation(User, err.ValidationError);
+              return res.json({
+                  success:false,
+                  errors: errors
+              });
+              
+          } else {
+            return res.json(err.status, {err: err});
+          }
+          
+      }
+      
+      return res.json({ user: user });
+      
+    });
+
+  },
+
   login: function (req, res) {
     var bcrypt = require('bcrypt');
 

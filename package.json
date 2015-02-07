@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bcrypt": "^0.8.1",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
@@ -31,8 +32,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/drewctufano/sails.git"
+    "url": "git://github.com/toddsby/sails.git"
   },
-  "author": "drewctufano",
+  "author": "toddsby",
   "license": ""
 }
